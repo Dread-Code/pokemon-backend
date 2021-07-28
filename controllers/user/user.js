@@ -22,10 +22,10 @@ const userRegister = async input => {
     })
 
   const foundEmail = await User.findOne({ email })
-  if (foundEmail) throw new Error('Email Already Exist')
+  if (foundEmail) throw new UserInputError('Email Already Exist')
 
   const foundUsername = await User.findOne({ username })
-  if (foundUsername) throw new Error('Username Already Exist')
+  if (foundUsername) throw new UserInputError('Username Already Exist')
 
   const salt = await bcryptjs.genSaltSync(10)
   newUser.password = await bcryptjs.hash(password, salt)
@@ -41,10 +41,13 @@ const userRegister = async input => {
 
 const login = async input => {
   const { email, password } = input
+
   const userFound = await User.findOne({ email: email.toLowerCase() })
   if (!userFound) throw new Error('Email is not correct')
+
   const passwordSucces = await bcryptjs.compare(password, userFound.password)
   if (!passwordSucces) throw new Error('Password is not correct')
+
   const exp = 60 * 20
   return {
     token: createToken(userFound, process.env.SECRET_KEY, exp)
