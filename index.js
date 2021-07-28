@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const jwt = require('jsonwebtoken')
 const { ApolloServer } = require('apollo-server')
 const typeDefs = require('./gql/schema')
 const resolvers = require('./gql/resolver')
@@ -11,7 +12,26 @@ const server = () => {
       credentials: true
     },
     typeDefs,
-    resolvers
+    resolvers,
+    context: ({ req, connection }) => {
+      if (!connection) {
+        // check connection for metadata
+        const token = req.headers.authorization
+        if (token) {
+          try {
+            const user = jwt.verify(token.replace('Bearer ', ''), process.env.SECRET_KEY)
+            return {
+              user
+            }
+          } catch (error) {
+            throw new Error('Token invalido')
+          }
+        }
+      } else {
+        return connection.context
+      }
+      return null
+    }
   })
   serverApollo.listen().then(({ url }) => {
     console.log(`Server on: ${url}`)
