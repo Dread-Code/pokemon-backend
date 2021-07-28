@@ -1,4 +1,4 @@
-const { pokemonRegister } = require('./pokemon')
+const pokemonRegister = require('./pokemonRegister/pokemonRegister')
 
 module.exports = {
   pokemonRegister

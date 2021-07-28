@@ -1,5 +1,5 @@
 const { UserInputError } = require('apollo-server')
-const Pokemon = require('../../models/pokemon')
+const Pokemon = require('../../../models/pokemon')
 
 const pokemonRegister = async input => {
   const newPokemon = input
@@ -17,6 +17,4 @@ const pokemonRegister = async input => {
   }
 }
 
-module.exports = {
-  pokemonRegister
-}
+module.exports = pokemonRegister

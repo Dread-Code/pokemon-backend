@@ -1,4 +1,5 @@
-const { userRegister, login } = require('./user')
+const userRegister = require('./userRegister/userRegister')
+const login = require('./login/login')
 
 module.exports = {
   userRegister,
