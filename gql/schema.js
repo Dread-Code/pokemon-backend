@@ -16,6 +16,15 @@ const typeDefs = gql`
     token: String
   }
 
+  type Pokemon {
+    name: String
+    power: Int
+    img: String
+    description: String
+    healthPoints: Int
+    pokemonType: String
+  }
+
   input UserInput {
     name: String!
     username: String!
@@ -28,6 +37,14 @@ const typeDefs = gql`
     password: String!
   }
 
+  input PokemonInput {
+    name: String!
+    power: Int!
+    description: String!
+    healthPoints: Int!
+    pokemonType: String!
+  }
+
   type Query {
     # User
     getUser: User
@@ -36,6 +53,8 @@ const typeDefs = gql`
     #User
     userRegister(input: UserInput): User
     login(input: LoginInput): Token
+    #Pokemon
+    pokemonRegister(input: PokemonInput): Pokemon
   }
 `
 

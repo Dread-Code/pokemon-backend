@@ -24,12 +24,7 @@ const pokemonSchema = Schema({
     require: true,
     trim: true
   },
-  type: {
-    type: String,
-    require: true,
-    trim: true
-  },
-  gender: {
+  pokemonType: {
     type: String,
     require: true,
     trim: true

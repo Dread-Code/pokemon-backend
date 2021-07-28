@@ -1,4 +1,5 @@
 const userController = require('../controllers/user')
+const pokemonController = require('../controllers/pokemon')
 
 const resolver = {
   Query: {
@@ -8,8 +9,16 @@ const resolver = {
     }
   },
   Mutation: {
+    /**
+     * User
+     */
     userRegister: async (_, { input }) => userController.userRegister(input),
-    login: async (_, { input }) => userController.login(input)
+    login: async (_, { input }) => userController.login(input),
+
+    /**
+     * Pokemon
+     */
+    pokemonRegister: async (_, { input }) => pokemonController.pokemonRegister(input)
   }
 }
 
