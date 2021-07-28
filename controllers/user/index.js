@@ -1,5 +1,6 @@
-const { userRegister } = require('./user')
+const { userRegister, login } = require('./user')
 
 module.exports = {
-  userRegister
+  userRegister,
+  login
 }

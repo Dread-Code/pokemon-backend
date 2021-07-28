@@ -1,5 +1,6 @@
 const bcryptjs = require('bcryptjs')
 const User = require('../../models/user')
+const { createToken } = require('../../utils/createToken/createToken')
 
 const userRegister = async input => {
   const newUser = input
@@ -26,6 +27,19 @@ const userRegister = async input => {
   }
 }
 
+const login = async input => {
+  const { email, password } = input
+  const userFound = await User.findOne({ email: email.toLowerCase() })
+  if (!userFound) throw new Error('Email is not correct')
+  const passwordSucces = await bcryptjs.compare(password, userFound.password)
+  if (!passwordSucces) throw new Error('Password is not correct')
+  const exp = 60 * 20
+  return {
+    token: createToken(userFound, process.env.SECRET_KEY, exp)
+  }
+}
+
 module.exports = {
-  userRegister
+  userRegister,
+  login
 }
