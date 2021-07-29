@@ -1,7 +1,7 @@
 const { UserInputError } = require('apollo-server')
 const Pokemon = require('../../../models/pokemon')
 
-const pokemonRegister = async input => {
+const pokemonRegister = async (input, { user }) => {
   const newPokemon = input
   newPokemon.name = newPokemon.name.toUpperCase()
 
@@ -9,7 +9,7 @@ const pokemonRegister = async input => {
   if (pokemonFound) throw new UserInputError('Pokemon already exist')
 
   try {
-    const pokemon = new Pokemon(newPokemon)
+    const pokemon = new Pokemon({ ...newPokemon, idUser: user.id })
     pokemon.save()
     return pokemon
   } catch (error) {
