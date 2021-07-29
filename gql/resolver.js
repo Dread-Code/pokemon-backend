@@ -7,6 +7,7 @@ const resolver = {
       console.log('Get user')
       return null
     },
+    searchPokemon: async (_, { search }) => pokemonController.searchPokemon(search),
     getPokemons: async () => pokemonController.getPokemons(),
     getUserPokemons: async (_, {}, ctx) => pokemonController.getUserPokemons(ctx)
   },

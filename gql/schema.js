@@ -58,6 +58,7 @@ const typeDefs = gql`
     # User
     getUser: User
     # Pokemon
+    searchPokemon(search: String): [Pokemon]
     getPokemons: [Pokemon]
     getUserPokemons: [Pokemon]
   }
