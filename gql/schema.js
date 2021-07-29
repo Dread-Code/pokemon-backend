@@ -40,6 +40,11 @@ const typeDefs = gql`
     password: String!
   }
 
+  input UpdatePokemonDescription {
+    id: ID!
+    description: String!
+  }
+
   input PokemonInput {
     name: String!
     power: Int!
@@ -62,6 +67,7 @@ const typeDefs = gql`
     login(input: LoginInput): Token
     #Pokemon
     pokemonRegister(input: PokemonInput): Pokemon
+    updatePokemonDescription(input: UpdatePokemonDescription): Pokemon
   }
 `
 

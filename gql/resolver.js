@@ -20,7 +20,9 @@ const resolver = {
     /**
      * Pokemon
      */
-    pokemonRegister: async (_, { input }, ctx) => pokemonController.pokemonRegister(input, ctx)
+    pokemonRegister: async (_, { input }, ctx) => pokemonController.pokemonRegister(input, ctx),
+    updatePokemonDescription: async (_, { input }, ctx) =>
+      pokemonController.updatePokemonDescription(input, ctx)
   }
 }
 
