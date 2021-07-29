@@ -68,6 +68,7 @@ const typeDefs = gql`
     #Pokemon
     pokemonRegister(input: PokemonInput): Pokemon
     updatePokemonDescription(input: UpdatePokemonDescription): Pokemon
+    deletePokemon(input: ID): Pokemon
   }
 `
 

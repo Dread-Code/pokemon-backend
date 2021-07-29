@@ -22,7 +22,8 @@ const resolver = {
      */
     pokemonRegister: async (_, { input }, ctx) => pokemonController.pokemonRegister(input, ctx),
     updatePokemonDescription: async (_, { input }, ctx) =>
-      pokemonController.updatePokemonDescription(input, ctx)
+      pokemonController.updatePokemonDescription(input, ctx),
+    deletePokemon: async (_, { input }, ctx) => pokemonController.deletePokemon(input, ctx)
   }
 }
 
