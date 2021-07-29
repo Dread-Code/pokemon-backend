@@ -7,7 +7,8 @@ const resolver = {
       console.log('Get user')
       return null
     },
-    getPokemons: async () => pokemonController.getPokemons()
+    getPokemons: async () => pokemonController.getPokemons(),
+    getUserPokemons: async (_, {}, ctx) => pokemonController.getUserPokemons(ctx)
   },
   Mutation: {
     /**

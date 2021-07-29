@@ -17,6 +17,7 @@ const typeDefs = gql`
   }
 
   type Pokemon {
+    id: ID
     name: String
     power: Int
     img: String
@@ -53,6 +54,7 @@ const typeDefs = gql`
     getUser: User
     # Pokemon
     getPokemons: [Pokemon]
+    getUserPokemons: [Pokemon]
   }
   type Mutation {
     #User
