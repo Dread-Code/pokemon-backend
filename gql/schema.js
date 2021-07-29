@@ -63,6 +63,7 @@ const typeDefs = gql`
     getUserPokemons: [Pokemon]
     #Like
     isLike(pokemonId: ID!): Boolean
+    getUserLikes: [Pokemon]
   }
   type Mutation {
     #User
