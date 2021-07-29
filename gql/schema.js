@@ -61,6 +61,8 @@ const typeDefs = gql`
     searchPokemon(search: String): [Pokemon]
     getPokemons: [Pokemon]
     getUserPokemons: [Pokemon]
+    #Like
+    isLike(pokemonId: ID!): Boolean
   }
   type Mutation {
     #User

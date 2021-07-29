@@ -10,7 +10,8 @@ const resolver = {
     },
     searchPokemon: async (_, { search }) => pokemonController.searchPokemon(search),
     getPokemons: async () => pokemonController.getPokemons(),
-    getUserPokemons: async (_, {}, ctx) => pokemonController.getUserPokemons(ctx)
+    getUserPokemons: async (_, {}, ctx) => pokemonController.getUserPokemons(ctx),
+    isLike: async (_, { pokemonId }, ctx) => likeController.isLike(pokemonId, ctx)
   },
   Mutation: {
     /**
