@@ -30,7 +30,8 @@ const resolver = {
     /**
      * Like
      */
-    addLike: async (_, { pokemonId }, ctx) => likeController.addLike(pokemonId, ctx)
+    addLike: async (_, { pokemonId }, ctx) => likeController.addLike(pokemonId, ctx),
+    deleteLike: async (_, { pokemonId }, ctx) => likeController.deleteLike(pokemonId, ctx)
   }
 }
 
