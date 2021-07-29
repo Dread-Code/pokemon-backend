@@ -23,6 +23,8 @@ const typeDefs = gql`
     description: String
     healthPoints: Int
     pokemonType: String
+    public: Boolean
+    idUser: User
   }
 
   input UserInput {
@@ -43,11 +45,14 @@ const typeDefs = gql`
     description: String!
     healthPoints: Int!
     pokemonType: String!
+    public: Boolean!
   }
 
   type Query {
     # User
     getUser: User
+    # Pokemon
+    getPokemons: [Pokemon]
   }
   type Mutation {
     #User
