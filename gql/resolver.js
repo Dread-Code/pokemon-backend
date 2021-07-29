@@ -1,5 +1,6 @@
 const userController = require('../controllers/user')
 const pokemonController = require('../controllers/pokemon')
+const likeController = require('../controllers/like')
 
 const resolver = {
   Query: {
@@ -24,7 +25,12 @@ const resolver = {
     pokemonRegister: async (_, { input }, ctx) => pokemonController.pokemonRegister(input, ctx),
     updatePokemonDescription: async (_, { input }, ctx) =>
       pokemonController.updatePokemonDescription(input, ctx),
-    deletePokemon: async (_, { input }, ctx) => pokemonController.deletePokemon(input, ctx)
+    deletePokemon: async (_, { input }, ctx) => pokemonController.deletePokemon(input, ctx),
+
+    /**
+     * Like
+     */
+    addLike: async (_, { pokemonId }, ctx) => likeController.addLike(pokemonId, ctx)
   }
 }
 

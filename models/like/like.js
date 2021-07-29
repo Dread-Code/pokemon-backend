@@ -6,7 +6,7 @@ const LikeSchema = Schema({
     required: true,
     ref: 'User'
   },
-  idPokemon: {
+  pokemonId: {
     type: Schema.Types.ObjectId,
     required: true,
     ref: 'Pokemon'
