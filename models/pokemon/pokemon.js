@@ -5,6 +5,11 @@ const pokemonSchema = Schema({
     type: String,
     require: true
   },
+  idUser: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
+  },
   power: {
     type: Number,
     require: true
@@ -28,6 +33,10 @@ const pokemonSchema = Schema({
     type: String,
     require: true,
     trim: true
+  },
+  public: {
+    type: Boolean,
+    require: true
   }
 })
 
